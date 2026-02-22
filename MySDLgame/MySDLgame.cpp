@@ -4,6 +4,7 @@
 #include <string>
 
 #include "mainMenu.h"
+#include "gameScene.h"
 
 #define SCENE_MAINMENU 0
 #define SCENE_GAME 1
@@ -15,15 +16,11 @@ int main(int argc, char* argv[])
 
 	static SDL_Window* window = SDL_CreateWindow( "My SDL Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, SDL_WINDOW_MAXIMIZED);
 	static SDL_Renderer* renderer = SDL_CreateRenderer( window, -1, SDL_RENDERER_ACCELERATED && SDL_RENDERER_PRESENTVSYNC );
-	SDL_Surface* iconSurf = IMG_Load("data/1.png");
-	SDL_SetWindowIcon(window, iconSurf);
+	SDL_SetWindowIcon(window, bgSurf);
 	// --------------------------------------------
 	
 	MainMenuStart(renderer);
-	SDL_Surface* playerSurf = IMG_Load("data/1.png");
-	SDL_Texture* playerTexture = SDL_CreateTextureFromSurface( renderer, playerSurf);
-	SDL_Rect playerDstRect = { 800 / 2, 600 / 2, 100, 100 };
-
+	OnGameStart(renderer);
 	
 	char gameState = SCENE_MAINMENU;
 	// --------------------------------------------
@@ -40,13 +37,12 @@ int main(int argc, char* argv[])
 		SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 		SDL_RenderClear(renderer);
 
+		switch (gameState)
+		{
+			case SCENE_MAINMENU:  MainMenuRender(renderer); break;
+			case SCENE_GAME:      OnGameRender(renderer);   break;
+		}
 
-		if (gameState == SCENE_MAINMENU) { MainMenuRender(renderer); }
-
-		if ( SDL_GetKeyboardState( NULL )[ SDL_SCANCODE_W ] ) { playerDstRect.y -= 1; }
-		if ( SDL_GetKeyboardState( NULL )[ SDL_SCANCODE_S ] ) { playerDstRect.y += 1; }
-		if ( SDL_GetKeyboardState( NULL )[ SDL_SCANCODE_A ] ) { playerDstRect.x -= 1; }
-		if ( SDL_GetKeyboardState( NULL )[ SDL_SCANCODE_D ] ) { playerDstRect.x += 1; }
 		SDL_RenderCopy( renderer, playerTexture, NULL, &playerDstRect );
 
 		SDL_RenderPresent( renderer );

@@ -27,8 +27,8 @@ void MainMenuStart(SDL_Renderer* renderer) {
 	StartButtonSurf = TTF_RenderText_Blended_Wrapped(font, "Start", { 255, 255, 255, 255 }, NULL);
 	StartButtonTexture = SDL_CreateTextureFromSurface(renderer, StartButtonSurf);
 
-	textRect.w = textSurface->w * 1.5;
-	textRect.h = textSurface->h * 1.5;
+	textRect.w = textSurface->w * 2;
+	textRect.h = textSurface->h * 2;
 	StartButtonRect.w = StartButtonSurf->w;
 	StartButtonRect.h = StartButtonSurf->h;
 }
@@ -42,7 +42,7 @@ void MainMenuEvent(SDL_Event& event, char& gameState) {
 		mouseY > StartButtonRect.y && mouseY < StartButtonRect.y + StartButtonRect.h;
 
 	if (event.type == SDL_MOUSEBUTTONDOWN && event.button.button == SDL_BUTTON_LEFT) {
-		if (overButton) gameState = 1;
+		if (overButton) { gameState = 1;  MainMenuCleanup(); }
 	}
 
 	// параллакс фона

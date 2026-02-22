@@ -141,6 +141,7 @@
     </Bscmake>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="gameScene.cpp" />
     <ClCompile Include="mainMenu.cpp" />
     <ClCompile Include="MySDLgame.cpp" />
   </ItemGroup>
@@ -150,6 +151,7 @@
     <None Include="SDL2.dll" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="gameScene.h" />
     <ClInclude Include="mainMenu.h" />
   </ItemGroup>
   <ItemGroup>

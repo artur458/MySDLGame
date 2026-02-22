@@ -12,11 +12,11 @@ SDL_Rect mapRect;
 void OnGameStart(SDL_Renderer* renderer) {
 	playerSurf = IMG_Load("data/player.png");
 	playerTexture = SDL_CreateTextureFromSurface(renderer, playerSurf);
-	playerDstRect = { 800 / 2, 600 / 2, 100, 100 };
+	playerDstRect = { 800 / 2 - 50, 600 / 2-50, 100, 100 };
 
 	mapSurf = IMG_Load("data/2.png");
 	mapTexture = SDL_CreateTextureFromSurface(renderer, mapSurf);
-	mapRect = { 0, 0, 1024, 1024 };
+	mapRect = { 400-1024, 300-1024, 2048, 2048 };
 }
 
 void OnGameRender(SDL_Renderer* renderer) {

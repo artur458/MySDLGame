@@ -43,8 +43,6 @@ int main(int argc, char* argv[])
 			case SCENE_GAME:      OnGameRender(renderer);   break;
 		}
 
-		SDL_RenderCopy( renderer, playerTexture, NULL, &playerDstRect );
-
 		SDL_RenderPresent( renderer );
 	}
 

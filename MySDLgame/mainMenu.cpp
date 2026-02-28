@@ -1,5 +1,6 @@
 #include "mainMenu.h"
-
+#include <iostream>
+#include <string>
 // Глобальные ресурсы
 TTF_Font* font = NULL;
 SDL_Surface* bgSurf = NULL;
@@ -14,6 +15,9 @@ SDL_Texture* bgTexture = NULL;
 SDL_Texture* textTexture = NULL;
 SDL_Texture* StartButtonTexture = NULL;
 
+SDL_Cursor* normalCursor = NULL;
+SDL_Cursor* hoverCursor  = NULL;
+
 // Инициализация меню
 void MainMenuStart(SDL_Renderer* renderer) {
 	font = TTF_OpenFont("data/Roboto-Bold.ttf", 64);
@@ -27,10 +31,14 @@ void MainMenuStart(SDL_Renderer* renderer) {
 	StartButtonSurf = TTF_RenderText_Blended_Wrapped(font, "Start", { 255, 255, 255, 255 }, NULL);
 	StartButtonTexture = SDL_CreateTextureFromSurface(renderer, StartButtonSurf);
 
+	normalCursor = SDL_CreateSystemCursor(SDL_SYSTEM_CURSOR_ARROW);
+	hoverCursor = SDL_CreateSystemCursor(SDL_SYSTEM_CURSOR_HAND);
+
 	textRect.w = textSurface->w * 2;
 	textRect.h = textSurface->h * 2;
 	StartButtonRect.w = StartButtonSurf->w;
 	StartButtonRect.h = StartButtonSurf->h;
+	std::cout << std::to_string(StartButtonSurf->w) + " " + std::to_string(StartButtonSurf->h) << std::endl;
 }
 
 // Обработка событий меню
@@ -41,11 +49,13 @@ void MainMenuEvent(SDL_Event& event, char& gameState) {
 	bool overButton = mouseX > StartButtonRect.x && mouseX < StartButtonRect.x + StartButtonRect.w &&
 		mouseY > StartButtonRect.y && mouseY < StartButtonRect.y + StartButtonRect.h;
 
+	if (overButton) { StartButtonRect.h = 95; StartButtonRect.w = 161; StartButtonRect.x -= 20; StartButtonRect.y -= 20; SDL_SetCursor(hoverCursor); }
+	else { StartButtonRect.h = 75; StartButtonRect.w = 141; StartButtonRect.x = 15; StartButtonRect.y = 200; SDL_SetCursor(normalCursor); }
+
 	if (event.type == SDL_MOUSEBUTTONDOWN && event.button.button == SDL_BUTTON_LEFT) {
-		if (overButton) { gameState = 1;  MainMenuCleanup(); }
+		if (overButton) { gameState = 1; SDL_SetCursor(normalCursor); MainMenuCleanup(); }
 	}
 
-	// параллакс фона
 	if (event.type == SDL_MOUSEMOTION) {
 		bgRect.x = 800 / 2 - bgRect.w / 2 + (event.motion.x - 800 / 2) / 5;
 		bgRect.y = 600 / 2 - bgRect.h / 2 + (event.motion.y - 600 / 2) / 5;

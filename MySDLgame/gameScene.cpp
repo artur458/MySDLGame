@@ -23,10 +23,10 @@ void OnGameRender(SDL_Renderer* renderer) {
 	SDL_RenderCopy(renderer, mapTexture, NULL, &mapRect);
 	SDL_RenderCopy(renderer, playerTexture, NULL, &playerDstRect);
 
-	if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_W]) { playerDstRect.y -= 1; }
-	if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_S]) { playerDstRect.y += 1; }
-	if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_A]) { playerDstRect.x -= 1; }
-	if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_D]) { playerDstRect.x += 1; }
+	if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_W] || SDL_GetKeyboardState(NULL)[SDL_SCANCODE_UP]) { playerDstRect.y -= 1; }
+	if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_S] || SDL_GetKeyboardState(NULL)[SDL_SCANCODE_DOWN]) { playerDstRect.y += 1; }
+	if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_A] || SDL_GetKeyboardState(NULL)[SDL_SCANCODE_LEFT]) { playerDstRect.x -= 1; }
+	if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_D] || SDL_GetKeyboardState(NULL)[SDL_SCANCODE_RIGHT]) { playerDstRect.x += 1; }
 }
 
 void OnGameCleanup() {

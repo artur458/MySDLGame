@@ -12,6 +12,9 @@ extern SDL_Rect bgRect;
 extern SDL_Rect textRect;
 extern SDL_Rect StartButtonRect;
 
+extern SDL_Cursor* normalCursor;
+extern SDL_Cursor* hoverCursor;
+
 void MainMenuStart(SDL_Renderer* renderer);
 void MainMenuEvent(SDL_Event& event, char& gameState);
 void MainMenuRender(SDL_Renderer* renderer);

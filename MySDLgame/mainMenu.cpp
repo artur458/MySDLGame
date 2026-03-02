@@ -38,7 +38,6 @@ void MainMenuStart(SDL_Renderer* renderer) {
 	textRect.h = textSurface->h * 2;
 	StartButtonRect.w = StartButtonSurf->w;
 	StartButtonRect.h = StartButtonSurf->h;
-	std::cout << std::to_string(StartButtonSurf->w) + " " + std::to_string(StartButtonSurf->h) << std::endl;
 }
 
 // Обработка событий меню
@@ -49,8 +48,8 @@ void MainMenuEvent(SDL_Event& event, char& gameState) {
 	bool overButton = mouseX > StartButtonRect.x && mouseX < StartButtonRect.x + StartButtonRect.w &&
 		mouseY > StartButtonRect.y && mouseY < StartButtonRect.y + StartButtonRect.h;
 
-	if (overButton) { StartButtonRect.h = 95; StartButtonRect.w = 161; StartButtonRect.x -= 20; StartButtonRect.y -= 20; SDL_SetCursor(hoverCursor); }
-	else { StartButtonRect.h = 75; StartButtonRect.w = 141; StartButtonRect.x = 15; StartButtonRect.y = 200; SDL_SetCursor(normalCursor); }
+	if (overButton) { StartButtonRect.h = 95; StartButtonRect.w = 161; SDL_SetCursor(hoverCursor); }
+	else { StartButtonRect.h = 75; StartButtonRect.w = 141; SDL_SetCursor(normalCursor); }
 
 	if (event.type == SDL_MOUSEBUTTONDOWN && event.button.button == SDL_BUTTON_LEFT) {
 		if (overButton) { gameState = 1; SDL_SetCursor(normalCursor); MainMenuCleanup(); }

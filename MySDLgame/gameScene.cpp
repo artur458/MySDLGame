@@ -9,6 +9,10 @@ SDL_Surface* mapSurf;
 SDL_Texture* mapTexture;
 SDL_Rect mapRect;
 
+SDL_Surface* itemSurf;
+SDL_Texture* itemTexture;
+SDL_Rect itemRect; 
+
 void OnGameStart(SDL_Renderer* renderer) {
 	playerSurf = IMG_Load("data/player.png");
 	playerTexture = SDL_CreateTextureFromSurface(renderer, playerSurf);
@@ -17,16 +21,31 @@ void OnGameStart(SDL_Renderer* renderer) {
 	mapSurf = IMG_Load("data/2.png");
 	mapTexture = SDL_CreateTextureFromSurface(renderer, mapSurf);
 	mapRect = { 400-1024, 300-1024, 2048, 2048 };
+
+	itemSurf = IMG_Load("data/item.png");
+	itemTexture = SDL_CreateTextureFromSurface(renderer, itemSurf);
+	itemRect = { 200, 200, 25, 25 };
 }
 
 void OnGameRender(SDL_Renderer* renderer) {
 	SDL_RenderCopy(renderer, mapTexture, NULL, &mapRect);
 	SDL_RenderCopy(renderer, playerTexture, NULL, &playerDstRect);
+	SDL_RenderCopy(renderer, itemTexture, NULL, &itemRect);
 
-	if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_W] || SDL_GetKeyboardState(NULL)[SDL_SCANCODE_UP]) { playerDstRect.y -= 1; }
-	if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_S] || SDL_GetKeyboardState(NULL)[SDL_SCANCODE_DOWN]) { playerDstRect.y += 1; }
-	if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_A] || SDL_GetKeyboardState(NULL)[SDL_SCANCODE_LEFT]) { playerDstRect.x -= 1; }
-	if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_D] || SDL_GetKeyboardState(NULL)[SDL_SCANCODE_RIGHT]) { playerDstRect.x += 1; }
+	// Логика поднятия предмета
+	if (playerDstRect.x < itemRect.x + itemRect.w && playerDstRect.x + playerDstRect.w > itemRect.x &&
+		playerDstRect.y < itemRect.y + itemRect.h && playerDstRect.y + playerDstRect.h > itemRect.y) {
+		itemRect.x = playerDstRect.x;
+		itemRect.y = playerDstRect.y;
+		if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_G]) {
+			itemRect.x -= 100;
+		}
+	}
+
+	if ( SDL_GetKeyboardState(NULL)[SDL_SCANCODE_W] || SDL_GetKeyboardState(NULL)[SDL_SCANCODE_UP]    ) { playerDstRect.y -= 1; }
+	if ( SDL_GetKeyboardState(NULL)[SDL_SCANCODE_S] || SDL_GetKeyboardState(NULL)[SDL_SCANCODE_DOWN]  ) { playerDstRect.y += 1; }
+	if ( SDL_GetKeyboardState(NULL)[SDL_SCANCODE_A] || SDL_GetKeyboardState(NULL)[SDL_SCANCODE_LEFT]  ) { playerDstRect.x -= 1; }
+	if ( SDL_GetKeyboardState(NULL)[SDL_SCANCODE_D] || SDL_GetKeyboardState(NULL)[SDL_SCANCODE_RIGHT] ) { playerDstRect.x += 1; }
 }
 
 void OnGameCleanup() {

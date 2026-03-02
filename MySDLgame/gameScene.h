@@ -9,6 +9,11 @@ extern SDL_Surface* mapSurf;
 extern SDL_Texture* mapTexture;
 extern SDL_Rect mapRect;
 
+
+extern SDL_Surface* itemSurf;
+extern SDL_Texture* itemTexture;
+extern SDL_Rect itemRect;
+
 void OnGameStart(SDL_Renderer* renderer);
 void OnGameRender(SDL_Renderer* renderer);
 void OnGameCleanup();

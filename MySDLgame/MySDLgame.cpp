@@ -42,7 +42,7 @@ int main(int argc, char* argv[])
 		toolsUpdate();
 		switch (gameState)
 		{
-			case SCENE_MAINMENU:  MainMenuRender(renderer); break;
+			case SCENE_MAINMENU:  MainMenuRender(renderer, event); break;
 			case SCENE_GAME:      OnGameRender(renderer);   break;
 		}
 

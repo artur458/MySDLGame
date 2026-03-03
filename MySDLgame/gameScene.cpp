@@ -1,6 +1,5 @@
 #include "gameScene.h"
 #include <SDL_image.h>
-#include "myTools.h"
 
 SDL_Surface* playerSurf;
 SDL_Texture* playerTexture;
@@ -37,7 +36,6 @@ void OnGameRender(SDL_Renderer* renderer) {
 	SDL_RenderCopyEx(renderer, playerTexture, NULL, &playerDstRect, NULL, NULL, flip);
 	SDL_RenderCopy(renderer, itemTexture, NULL, &itemRect);
 	
-	// Логика поднятия предмета
 	if (playerDstRect.x < itemRect.x + itemRect.w && playerDstRect.x + playerDstRect.w > itemRect.x &&
 		playerDstRect.y < itemRect.y + itemRect.h && playerDstRect.y + playerDstRect.h > itemRect.y) {
 		switch (flip) {
@@ -54,10 +52,10 @@ void OnGameRender(SDL_Renderer* renderer) {
 		}
 	}
 
-	if ( SDL_GetKeyboardState( NULL )[ SDL_SCANCODE_W ] || SDL_GetKeyboardState(NULL)[SDL_SCANCODE_UP]    ) { playerDstRect.y -= 1 * deltaTime(); }
-	if ( SDL_GetKeyboardState( NULL )[ SDL_SCANCODE_S ] || SDL_GetKeyboardState(NULL)[SDL_SCANCODE_DOWN]  ) { playerDstRect.y += 1 * deltaTime(); }
-	if ( SDL_GetKeyboardState( NULL )[ SDL_SCANCODE_A ] || SDL_GetKeyboardState(NULL)[SDL_SCANCODE_LEFT]  ) { playerDstRect.x -= 1 * deltaTime(); flip = SDL_FLIP_NONE; }
-	if ( SDL_GetKeyboardState( NULL )[ SDL_SCANCODE_D ] || SDL_GetKeyboardState(NULL)[SDL_SCANCODE_RIGHT] ) { playerDstRect.x += 1 * deltaTime(); flip = SDL_FLIP_HORIZONTAL; }
+	if ( SDL_GetKeyboardState( NULL )[ SDL_SCANCODE_W ] || SDL_GetKeyboardState(NULL)[SDL_SCANCODE_UP]    ) { playerDstRect.y -= 1; }
+	if ( SDL_GetKeyboardState( NULL )[ SDL_SCANCODE_S ] || SDL_GetKeyboardState(NULL)[SDL_SCANCODE_DOWN]  ) { playerDstRect.y += 1; }
+	if ( SDL_GetKeyboardState( NULL )[ SDL_SCANCODE_A ] || SDL_GetKeyboardState(NULL)[SDL_SCANCODE_LEFT]  ) { playerDstRect.x -= 1; flip = SDL_FLIP_NONE; }
+	if ( SDL_GetKeyboardState( NULL )[ SDL_SCANCODE_D ] || SDL_GetKeyboardState(NULL)[SDL_SCANCODE_RIGHT] ) { playerDstRect.x += 1; flip = SDL_FLIP_HORIZONTAL; }
 }
 
 void OnGameCleanup() {

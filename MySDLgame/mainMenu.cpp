@@ -14,13 +14,13 @@ SDL_Rect SrcUrlsRectTg = { 0, 128, 128, 128 };
 SDL_Rect SrcUrlsRectGit = { 0, 256, 128, 128 };
 SDL_Rect SrcUrlsRectTxt = { 128, 0, 128, 384 };
 
-SDL_Rect bgRect = { 800 / 2, 600 / 2, 960, 720 };
+SDL_Rect bgRect = { -80, -60, 960, 720 };
 SDL_Rect textRect = { 20, 20, 400, 200 };
 SDL_Rect StartButtonRect = { 15, 200, 200, 75 };
-SDL_Rect DscUrlsRectDs = { 15, 450, 75, 75 };
-SDL_Rect DscUrlsRectTg = { 95, 450, 75, 75 };
-SDL_Rect DscUrlsRectGit = { 175, 450, 75, 75 };
-SDL_Rect DscUrlsRectTxt = { 150, 245, SrcUrlsRectTxt.w - 30, SrcUrlsRectTxt.h - 30 };
+SDL_Rect DscUrlsRectDs = { 20, 475, 75, 75 };
+SDL_Rect DscUrlsRectTg = { 100, 475, 75, 75 };
+SDL_Rect DscUrlsRectGit = { 180, 475, 75, 75 };
+SDL_Rect DscUrlsRectTxt = { 155, 245, SrcUrlsRectTxt.w - 30, SrcUrlsRectTxt.h - 30 };
 
 SDL_Texture* bgTexture = NULL;
 SDL_Texture* textTexture = NULL;
@@ -48,6 +48,7 @@ void MainMenuStart(SDL_Renderer* renderer) {
 	
 	urlsSurf = IMG_Load("data/urls.png");
 	urlsTexture = SDL_CreateTextureFromSurface(renderer, urlsSurf);
+	SDL_SetTextureScaleMode(urlsTexture, SDL_ScaleModeBest);
 
 
 	textRect.w = textSurface->w * 2;
@@ -82,31 +83,31 @@ void MainMenuEvent(SDL_Event& event, char& gameState) {
 		StartButtonRect.x = 15 + (event.motion.x - 20) / 50;
 		StartButtonRect.y = 200 + (event.motion.y - 20) / 50;
 
-		DscUrlsRectDs.x = 15 + (event.motion.x - 20) / 50;
-		DscUrlsRectDs.y = 450 + (event.motion.y - 20) / 50;
+		DscUrlsRectDs.x = 20 + (event.motion.x - 20) / 50;
+		DscUrlsRectDs.y = 475 + (event.motion.y - 20) / 50;
 
-		DscUrlsRectTg.x = 95 + (event.motion.x - 20) / 50;
-		DscUrlsRectTg.y = 450 + (event.motion.y - 20) / 50;
+		DscUrlsRectTg.x = 100 + (event.motion.x - 20) / 50;
+		DscUrlsRectTg.y = 475 + (event.motion.y - 20) / 50;
 
-		DscUrlsRectGit.x = 175 + (event.motion.x - 20) / 50;
-		DscUrlsRectGit.y = 450 + (event.motion.y - 20) / 50;
+		DscUrlsRectGit.x = 180 + (event.motion.x - 20) / 50;
+		DscUrlsRectGit.y = 475 + (event.motion.y - 20) / 50;
 
-		DscUrlsRectTxt.x = 150 + (event.motion.x - 20) / 50;
-		DscUrlsRectTxt.y = 245 + (event.motion.y - 20) / 50;
+		DscUrlsRectTxt.x = 155 + (event.motion.x - 20) / 50;
+		DscUrlsRectTxt.y = 260 + (event.motion.y - 20) / 50;
 	}
 }
 
 // Рендер меню
-void MainMenuRender(SDL_Renderer* renderer) {
+void MainMenuRender(SDL_Renderer* renderer, SDL_Event& event) {
 	SDL_RenderCopy(renderer, bgTexture, NULL, &bgRect);
-	SDL_RenderCopy(renderer, textTexture, NULL, &textRect);
-	SDL_RenderCopy(renderer, StartButtonTexture, NULL, &StartButtonRect);
-
+	SDL_RenderDrawLine(renderer, 400, 300, GetMousePos().x, GetMousePos().y);
+	SDL_RenderCopyShadow(renderer, textTexture, NULL, textRect, 10, 10);
+	SDL_SetTextureColorMod(StartButtonTexture, 0, 0, 0);
+	SDL_RenderCopyShadow(renderer, StartButtonTexture, NULL, StartButtonRect);
 	SDL_RenderCopyEx(renderer, urlsTexture, &SrcUrlsRectTxt, &DscUrlsRectTxt, -90.f, NULL, SDL_FLIP_NONE);
-	SDL_RenderCopy(renderer, urlsTexture, &SrcUrlsRectDs, &DscUrlsRectDs);
-	SDL_RenderCopy(renderer, urlsTexture, &SrcUrlsRectTg, &DscUrlsRectTg);
-	SDL_RenderCopy(renderer, urlsTexture, &SrcUrlsRectGit, &DscUrlsRectGit);
-
+	SDL_RenderCopyShadow(renderer, urlsTexture, &SrcUrlsRectDs, DscUrlsRectDs);
+	SDL_RenderCopyShadow(renderer, urlsTexture, &SrcUrlsRectTg, DscUrlsRectTg);
+	SDL_RenderCopyShadow(renderer, urlsTexture, &SrcUrlsRectGit, DscUrlsRectGit);
 }
 
 // Очистка ресурсов

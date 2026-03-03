@@ -8,5 +8,5 @@ extern SDL_Surface* bgSurf;
 
 void MainMenuStart(SDL_Renderer* renderer);
 void MainMenuEvent(SDL_Event& event, char& gameState);
-void MainMenuRender(SDL_Renderer* renderer);
+void MainMenuRender(SDL_Renderer* renderer, SDL_Event& event);
 void MainMenuCleanup();

@@ -1,8 +1,10 @@
 ﻿#include <SDL.h>
+#include <SDL_main.h>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
 #include <string>
-
+#include <iostream>
+#include "myTools.h"
 #include "mainMenu.h"
 #include "gameScene.h"
 
@@ -17,11 +19,12 @@ int main(int argc, char* argv[])
 	static SDL_Window* window = SDL_CreateWindow( "My SDL Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, SDL_WINDOW_MAXIMIZED);
 	static SDL_Renderer* renderer = SDL_CreateRenderer( window, -1, SDL_RENDERER_ACCELERATED && SDL_RENDERER_PRESENTVSYNC );
 	SDL_SetWindowIcon(window, bgSurf);
-	// --------------------------------------------
-	
+	// --------------------------------
+
+	toolsStart();
 	MainMenuStart(renderer);
 	OnGameStart(renderer);
-	
+
 	char gameState = SCENE_MAINMENU;
 	// --------------------------------------------
 	SDL_Event event;
@@ -36,7 +39,7 @@ int main(int argc, char* argv[])
 		}
 		SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 		SDL_RenderClear(renderer);
-
+		toolsUpdate();
 		switch (gameState)
 		{
 			case SCENE_MAINMENU:  MainMenuRender(renderer); break;

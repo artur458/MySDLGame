@@ -3,20 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\User\\Desktop\\MySDLGame\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{96A433FC-1674-41A7-BEC9-13F97AEF45B4}|MySDLgame\\MySDLgame.vcxproj|C:\\Users\\User\\Desktop\\MySDLGame\\MySDLgame\\MySDLgame.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{96A433FC-1674-41A7-BEC9-13F97AEF45B4}|MySDLgame\\MySDLgame.vcxproj|solutionrelative:MySDLgame\\MySDLgame.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{96A433FC-1674-41A7-BEC9-13F97AEF45B4}|MySDLgame\\MySDLgame.vcxproj|C:\\Users\\User\\Desktop\\MySDLGame\\MySDLgame\\mainMenu.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{96A433FC-1674-41A7-BEC9-13F97AEF45B4}|MySDLgame\\MySDLgame.vcxproj|solutionrelative:MySDLgame\\mainMenu.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96A433FC-1674-41A7-BEC9-13F97AEF45B4}|MySDLgame\\MySDLgame.vcxproj|C:\\Users\\User\\Desktop\\MySDLGame\\MySDLgame\\MySDLgame.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{96A433FC-1674-41A7-BEC9-13F97AEF45B4}|MySDLgame\\MySDLgame.vcxproj|solutionrelative:MySDLgame\\MySDLgame.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{96A433FC-1674-41A7-BEC9-13F97AEF45B4}|MySDLgame\\MySDLgame.vcxproj|C:\\Users\\User\\Desktop\\MySDLGame\\MySDLgame\\gameScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{96A433FC-1674-41A7-BEC9-13F97AEF45B4}|MySDLgame\\MySDLgame.vcxproj|solutionrelative:MySDLgame\\gameScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{96A433FC-1674-41A7-BEC9-13F97AEF45B4}|MySDLgame\\MySDLgame.vcxproj|C:\\Users\\User\\Desktop\\MySDLGame\\MySDLgame\\myTools.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{96A433FC-1674-41A7-BEC9-13F97AEF45B4}|MySDLgame\\MySDLgame.vcxproj|solutionrelative:MySDLgame\\myTools.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{96A433FC-1674-41A7-BEC9-13F97AEF45B4}|MySDLgame\\MySDLgame.vcxproj|C:\\Users\\User\\Desktop\\MySDLGame\\MySDLgame\\gameScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{96A433FC-1674-41A7-BEC9-13F97AEF45B4}|MySDLgame\\MySDLgame.vcxproj|solutionrelative:MySDLgame\\gameScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96A433FC-1674-41A7-BEC9-13F97AEF45B4}|MySDLgame\\MySDLgame.vcxproj|C:\\Users\\User\\Desktop\\MySDLGame\\MySDLgame\\myTools.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{96A433FC-1674-41A7-BEC9-13F97AEF45B4}|MySDLgame\\MySDLgame.vcxproj|solutionrelative:MySDLgame\\myTools.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{96A433FC-1674-41A7-BEC9-13F97AEF45B4}|MySDLgame\\MySDLgame.vcxproj|C:\\Users\\User\\Desktop\\MySDLGame\\MySDLgame\\mainMenu.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -30,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,39 +50,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "mainMenu.h",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\MySDLGame\\MySDLgame\\mainMenu.h",
-              "RelativeDocumentMoniker": "MySDLgame\\mainMenu.h",
-              "ToolTip": "C:\\Users\\User\\Desktop\\MySDLGame\\MySDLgame\\mainMenu.h",
-              "RelativeToolTip": "MySDLgame\\mainMenu.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-02-22T08:45:06.022Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "mainMenu.cpp",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\MySDLGame\\MySDLgame\\mainMenu.cpp",
-              "RelativeDocumentMoniker": "MySDLgame\\mainMenu.cpp",
-              "ToolTip": "C:\\Users\\User\\Desktop\\MySDLGame\\MySDLgame\\mainMenu.cpp",
-              "RelativeToolTip": "MySDLgame\\mainMenu.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEwAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-02-22T08:45:03.822Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
               "Title": "MySDLgame.cpp",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\MySDLGame\\MySDLgame\\MySDLgame.cpp",
               "RelativeDocumentMoniker": "MySDLgame\\MySDLgame.cpp",
               "ToolTip": "C:\\Users\\User\\Desktop\\MySDLGame\\MySDLgame\\MySDLgame.cpp",
               "RelativeToolTip": "MySDLgame\\MySDLgame.cpp",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAABgAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAABQAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2026-02-22T08:45:05.415Z",
               "EditorCaption": ""
@@ -82,12 +64,64 @@
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "myTools.h",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\MySDLGame\\MySDLgame\\myTools.h",
+              "RelativeDocumentMoniker": "MySDLgame\\myTools.h",
+              "ToolTip": "C:\\Users\\User\\Desktop\\MySDLGame\\MySDLgame\\myTools.h",
+              "RelativeToolTip": "MySDLgame\\myTools.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-03-03T14:49:17.419Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "myTools.cpp",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\MySDLGame\\MySDLgame\\myTools.cpp",
+              "RelativeDocumentMoniker": "MySDLgame\\myTools.cpp",
+              "ToolTip": "C:\\Users\\User\\Desktop\\MySDLGame\\MySDLgame\\myTools.cpp",
+              "RelativeToolTip": "MySDLgame\\myTools.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-03-03T14:56:35.716Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "mainMenu.h",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\MySDLGame\\MySDLgame\\mainMenu.h",
+              "RelativeDocumentMoniker": "MySDLgame\\mainMenu.h",
+              "ToolTip": "C:\\Users\\User\\Desktop\\MySDLGame\\MySDLgame\\mainMenu.h",
+              "RelativeToolTip": "MySDLgame\\mainMenu.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-02-22T08:45:06.022Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "mainMenu.cpp",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\MySDLGame\\MySDLgame\\mainMenu.cpp",
+              "RelativeDocumentMoniker": "MySDLgame\\mainMenu.cpp",
+              "ToolTip": "C:\\Users\\User\\Desktop\\MySDLGame\\MySDLgame\\mainMenu.cpp",
+              "RelativeToolTip": "MySDLgame\\mainMenu.cpp",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAAF4AAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-02-22T08:45:03.822Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "gameScene.h",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\MySDLGame\\MySDLgame\\gameScene.h",
               "RelativeDocumentMoniker": "MySDLgame\\gameScene.h",
               "ToolTip": "C:\\Users\\User\\Desktop\\MySDLGame\\MySDLgame\\gameScene.h",
               "RelativeToolTip": "MySDLgame\\gameScene.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2026-02-22T08:45:04.414Z",
               "EditorCaption": ""
@@ -100,7 +134,7 @@
               "RelativeDocumentMoniker": "MySDLgame\\gameScene.cpp",
               "ToolTip": "C:\\Users\\User\\Desktop\\MySDLGame\\MySDLgame\\gameScene.cpp",
               "RelativeToolTip": "MySDLgame\\gameScene.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAADoAAACNAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2026-02-22T08:45:02.112Z",
               "EditorCaption": ""

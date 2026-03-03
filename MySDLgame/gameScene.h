@@ -14,6 +14,8 @@ extern SDL_Surface* itemSurf;
 extern SDL_Texture* itemTexture;
 extern SDL_Rect itemRect;
 
+extern SDL_RendererFlip flip;
+
 void OnGameStart(SDL_Renderer* renderer);
 void OnGameRender(SDL_Renderer* renderer);
 void OnGameCleanup();

@@ -10,17 +10,12 @@ int mouseX, mouseY;
 void toolsStart() {
 	lastTime = SDL_GetTicks();
 }
-void toolsEvent(SDL_Event& event) {
-	if (event.type == SDL_MOUSEMOTION) {
-		mouseX = event.motion.x;
-		mouseY = event.motion.y;
-	}
-}
 
 void toolsUpdate() {
 	currentTime = SDL_GetTicks();
 	deltatime = (currentTime - lastTime) / 1000.0f; 
 	lastTime = currentTime;
+	SDL_GetMouseState(&mouseX, &mouseY);
 }
 
 float deltaTime() {

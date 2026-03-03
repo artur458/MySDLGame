@@ -7,7 +7,6 @@ extern Uint32 currentTime;
 extern float deltatime;
 
 void toolsStart();
-void toolsEvent(SDL_Event& event);
 void toolsUpdate();
 
 float deltaTime();

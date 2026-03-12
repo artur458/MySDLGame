@@ -76,16 +76,17 @@ void OnGameRender(SDL_Renderer* renderer, SDL_Event& event) {
 		
 		if (playerSrcRect.x >= 168) { playerSrcRect.x = 0; }
 	}
-
+	
 	if (inTrigger(playerDstRect, itemSpikeRect) && isPlayerAlive != false) { isPlayerAlive = false; }
 	switch (isPlayerAlive) {
-		case false:
+		case false:           // Игрок умер
 			playerSrcRect.y = 96;
 			playerAnimTimer += deltaTime();
 			if (playerAnimTimer >= 0.10f) { playerSrcRect.x += 24; playerAnimTimer = 0.f; }
 			if (playerSrcRect.x >= 168) { OnGameStart(renderer); }
 			break;
-		case true:
+
+		case true:            // Игрок жив
 			if ( isHover(playerDstRect) && event.button.button == SDL_BUTTON_LEFT) { SDL_OpenURL("https://penzilla.itch.io/protagonist-character"); }
 			if      ( SDL_GetKeyboardState(NULL)[SDL_SCANCODE_W] || SDL_GetKeyboardState(NULL)[SDL_SCANCODE_UP]    ) { playerDstRect.y -= 1; isPlayerRunning = true; }
 			else if ( SDL_GetKeyboardState(NULL)[SDL_SCANCODE_S] || SDL_GetKeyboardState(NULL)[SDL_SCANCODE_DOWN]  ) { playerDstRect.y += 1; isPlayerRunning = true; }

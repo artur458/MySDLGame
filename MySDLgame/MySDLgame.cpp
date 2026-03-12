@@ -3,8 +3,6 @@
 #include <SDL_image.h>
 #include <SDL_ttf.h>
 
-#include <string>
-#include <iostream>
 #include "myTools.h"
 #include "mainMenu.h"
 #include "gameScene.h"

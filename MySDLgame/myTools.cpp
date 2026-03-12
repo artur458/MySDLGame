@@ -21,10 +21,12 @@ void toolsUpdate() {
 float deltaTime() {
 	return deltatime;
 }
+
 bool isHover(SDL_Rect& buttonRect) {
 	return mouseX > buttonRect.x && mouseX < buttonRect.x + buttonRect.w &&
 		   mouseY > buttonRect.y && mouseY < buttonRect.y + buttonRect.h;
 }
+
 bool inTrigger(SDL_Rect& aRect, SDL_Rect& bRect){
 	return aRect.x < bRect.x + bRect.w && aRect.x + aRect.w > bRect.x &&
 		   aRect.y < bRect.y + bRect.h && aRect.y + aRect.h > bRect.y;

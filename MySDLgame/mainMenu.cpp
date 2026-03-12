@@ -6,6 +6,7 @@
 
 
 TTF_Font* font = NULL;
+
 SDL_Surface* bgSurf = NULL;
 SDL_Surface* textSurface = NULL;
 SDL_Surface* StartButtonSurf = NULL;

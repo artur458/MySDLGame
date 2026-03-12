@@ -2,6 +2,7 @@
 #include <SDL_main.h>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
+
 #include <string>
 #include <iostream>
 #include "myTools.h"
@@ -16,14 +17,12 @@ int main(int argc, char* argv[])
 	IMG_Init(IMG_INIT_PNG);
 	TTF_Init();
 
-	static SDL_Window* window = SDL_CreateWindow( "My SDL Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, SDL_WINDOW_MAXIMIZED);
+	static SDL_Window* window = SDL_CreateWindow( "My SDL Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, SDL_WINDOW_MAXIMIZED );
 	static SDL_Renderer* renderer = SDL_CreateRenderer( window, -1, SDL_RENDERER_ACCELERATED && SDL_RENDERER_PRESENTVSYNC );
 	SDL_SetWindowIcon(window, bgSurf);
 	// --------------------------------
-
 	toolsStart();
 	MainMenuStart(renderer);
-	OnGameStart(renderer);
 
 	char gameState = SCENE_MAINMENU;
 	// --------------------------------------------
@@ -35,7 +34,7 @@ int main(int argc, char* argv[])
 		{
 			if (event.type == SDL_QUIT)
 				running = false;
-			if (gameState == SCENE_MAINMENU) { MainMenuEvent(event, gameState); }
+			if (gameState == SCENE_MAINMENU) { MainMenuEvent(event, gameState, renderer); }
 		}
 		SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 		SDL_RenderClear(renderer);
@@ -43,15 +42,16 @@ int main(int argc, char* argv[])
 		switch (gameState)
 		{
 			case SCENE_MAINMENU:  MainMenuRender(renderer, event); break;
-			case SCENE_GAME:      OnGameRender(renderer);   break;
+			case SCENE_GAME:      OnGameRender(renderer, event);   break;
 		}
 
 		SDL_RenderPresent( renderer );
 	}
 
+	MainMenuCleanup();
+	OnGameCleanup();
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
-	MainMenuCleanup();
 	TTF_CloseFont(font);
 
 	TTF_Quit();

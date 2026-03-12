@@ -32,17 +32,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="SDL2.dll">
-      <Filter>Исходные файлы</Filter>
-    </None>
-    <None Include="..\SDL2_image-2.8.8\lib\x64\SDL2_image.dll">
-      <Filter>Исходные файлы</Filter>
-    </None>
-    <None Include="..\..\..\..\Desktop\Проекты\Сигмо библиотеки C++\SDL2_ttf-2.24.0\lib\x64\SDL2_ttf.dll">
-      <Filter>Исходные файлы</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="mainMenu.h">
       <Filter>Исходные файлы</Filter>
     </ClInclude>

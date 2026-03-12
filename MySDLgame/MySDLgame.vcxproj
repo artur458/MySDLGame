@@ -148,11 +148,6 @@
     <ClCompile Include="myTools.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\..\Desktop\Проекты\Сигмо библиотеки C++\SDL2_ttf-2.24.0\lib\x64\SDL2_ttf.dll" />
-    <None Include="..\SDL2_image-2.8.8\lib\x64\SDL2_image.dll" />
-    <None Include="SDL2.dll" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="gameScene.h" />
     <ClInclude Include="mainMenu.h" />
     <ClInclude Include="myTools.h" />

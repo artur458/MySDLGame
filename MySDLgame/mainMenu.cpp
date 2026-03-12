@@ -2,6 +2,8 @@
 #include <iostream>
 #include <string>
 #include "myTools.h"
+#include "gameScene.h"
+
 
 TTF_Font* font = NULL;
 SDL_Surface* bgSurf = NULL;
@@ -55,11 +57,10 @@ void MainMenuStart(SDL_Renderer* renderer) {
 	textRect.h = textSurface->h * 2;
 	StartButtonRect.w = StartButtonSurf->w;
 	StartButtonRect.h = StartButtonSurf->h;
-
 }
 
 // Обработка событий меню
-void MainMenuEvent(SDL_Event& event, char& gameState) {
+void MainMenuEvent(SDL_Event& event, char& gameState, SDL_Renderer* renderer) {
 	int mouseX, mouseY;
 	SDL_GetMouseState(&mouseX, &mouseY);
 
@@ -67,7 +68,7 @@ void MainMenuEvent(SDL_Event& event, char& gameState) {
 	else { SDL_SetCursor(normalCursor); }
 
 	if (event.button.button == SDL_BUTTON_LEFT) {
-		if ( isHover(StartButtonRect) ) { gameState = 1; SDL_SetCursor(normalCursor); MainMenuCleanup(); }
+		if (isHover(StartButtonRect)) { gameState = 1; SDL_SetCursor(normalCursor); OnGameStart(renderer); MainMenuCleanup(); }
 		if ( isHover(DscUrlsRectDs) ) { SDL_OpenURL( "https://discord.gg/m7qWUgRGK7" ); }
 		if ( isHover(DscUrlsRectTg) ) { SDL_OpenURL( "https://t.me/Deadly_Place "); }
 		if ( isHover(DscUrlsRectGit) ) { SDL_OpenURL( "https://github.com/artur458/MySDLGame" ); }
@@ -80,10 +81,10 @@ void MainMenuEvent(SDL_Event& event, char& gameState) {
 		textRect.x = 10 + (event.motion.x - 20) / 50;
 		textRect.y = 10 + (event.motion.y - 20) / 50;
 
-		StartButtonRect.x = 15 + (event.motion.x - 20) / 50;
+		StartButtonRect.x =  15 + (event.motion.x - 20) / 50;
 		StartButtonRect.y = 200 + (event.motion.y - 20) / 50;
 
-		DscUrlsRectDs.x = 20 + (event.motion.x - 20) / 50;
+		DscUrlsRectDs.x =  20 + (event.motion.x - 20) / 50;
 		DscUrlsRectDs.y = 475 + (event.motion.y - 20) / 50;
 
 		DscUrlsRectTg.x = 100 + (event.motion.x - 20) / 50;
@@ -118,6 +119,5 @@ void MainMenuCleanup() {
 
 	if (bgSurf) SDL_FreeSurface(bgSurf);
 	if (textSurface) SDL_FreeSurface(textSurface);
-	if (StartButtonSurf) SDL_FreeSurface(StartButtonSurf);
-
+	if (StartButtonSurf) SDL_FreeSurface(StartButtonSurf);	
 }

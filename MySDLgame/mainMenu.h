@@ -7,6 +7,6 @@ extern TTF_Font* font;
 extern SDL_Surface* bgSurf;
 
 void MainMenuStart(SDL_Renderer* renderer);
-void MainMenuEvent(SDL_Event& event, char& gameState);
+void MainMenuEvent(SDL_Event& event, char& gameState, SDL_Renderer* renderer);
 void MainMenuRender(SDL_Renderer* renderer, SDL_Event& event);
 void MainMenuCleanup();

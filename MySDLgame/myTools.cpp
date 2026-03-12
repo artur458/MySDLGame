@@ -25,6 +25,11 @@ bool isHover(SDL_Rect& buttonRect) {
 	return mouseX > buttonRect.x && mouseX < buttonRect.x + buttonRect.w &&
 		   mouseY > buttonRect.y && mouseY < buttonRect.y + buttonRect.h;
 }
+bool inTrigger(SDL_Rect& aRect, SDL_Rect& bRect){
+	return aRect.x < bRect.x + bRect.w && aRect.x + aRect.w > bRect.x &&
+		   aRect.y < bRect.y + bRect.h && aRect.y + aRect.h > bRect.y;
+}
+
 void SDL_RenderCopyShadow(SDL_Renderer* renderer, SDL_Texture* texture, const SDL_Rect* srcrect, SDL_Rect& dstrect, int shadowX, int shadowY) {
 	SDL_SetTextureColorMod(texture, 0, 0, 0);
 	SDL_SetTextureAlphaMod(texture, 127);

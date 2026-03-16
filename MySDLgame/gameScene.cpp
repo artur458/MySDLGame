@@ -2,26 +2,26 @@
 #include "myTools.h"
 #include <SDL_image.h>
 
-SDL_Surface* playerSurf;
-SDL_Texture* playerTexture;
-SDL_Rect playerDstRect;
-SDL_Rect playerSrcRect;
 bool isPlayerRunning;
 bool isPlayerAlive;
 float playerAnimTimer;
 
 SDL_Surface* mapSurf;
-SDL_Texture* mapTexture;
-SDL_Rect mapRect;
-
 SDL_Surface* itemSurf;
+SDL_Surface* playerSurf;
+
 SDL_Texture* itemTexture;
+SDL_Texture* mapTexture;
+SDL_Texture* playerTexture;
 
 SDL_Rect itemHealthRect;
 SDL_Rect itemHealthSrcRect;
 
 SDL_Rect itemSpikeRect;
 SDL_Rect itemSpikeSrcRect;
+SDL_Rect mapRect;
+SDL_Rect playerDstRect;
+SDL_Rect playerSrcRect;
 
 SDL_RendererFlip flip;
 
@@ -56,17 +56,17 @@ void OnGameRender(SDL_Renderer* renderer, SDL_Event& event) {
 	SDL_RenderCopy(renderer, itemTexture, &itemSpikeSrcRect, &itemSpikeRect);
 
 	if (inTrigger(playerDstRect, itemHealthRect)) {
-		switch (flip) {
-			case SDL_FLIP_NONE:
-				itemHealthRect.x = playerDstRect.x;
-				itemHealthRect.y = playerDstRect.y;
-				break;
-			case SDL_FLIP_HORIZONTAL:
-				itemHealthRect.x = playerDstRect.x + playerDstRect.w - itemHealthRect.w;
-				itemHealthRect.y = playerDstRect.y;
-			}
+		itemHealthRect.x = playerDstRect.x + playerDstRect.w / 2;
+		itemHealthRect.y = playerDstRect.y + playerDstRect.h / 2;
 		if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_G]) {
+			switch (flip) {
+			case SDL_FLIP_HORIZONTAL:
 			itemHealthRect.x -= 100;
+			break;
+			case SDL_FLIP_NONE:
+			itemHealthRect.x += 100;
+			break;
+			}
 		}
 	}
 	if (isPlayerRunning) {
@@ -98,10 +98,11 @@ void OnGameRender(SDL_Renderer* renderer, SDL_Event& event) {
 }
 
 void OnGameCleanup() {
-	SDL_FreeSurface(playerSurf);
-	SDL_DestroyTexture(playerTexture);
-	SDL_FreeSurface(mapSurf);
-	SDL_DestroyTexture(mapTexture);
-	SDL_FreeSurface(itemSurf);
 	SDL_DestroyTexture(itemTexture);
+	SDL_DestroyTexture(mapTexture);
+	SDL_DestroyTexture(playerTexture);
+
+	SDL_FreeSurface(playerSurf);
+	SDL_FreeSurface(mapSurf);
+	SDL_FreeSurface(itemSurf);
 }

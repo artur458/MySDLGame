@@ -16,6 +16,9 @@
     <Filter Include="Исходные файлы\tools">
       <UniqueIdentifier>{2989e720-e04e-4819-b032-a4ecd9e98a6f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\dlls">
+      <UniqueIdentifier>{c62f8f7a-58bf-482e-a123-00b3c587425b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MySDLgame.cpp">
@@ -46,5 +49,16 @@
     <ResourceCompile Include="MySDLgame.rc">
       <Filter>Файлы ресурсов</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\x64\Release\dlls\SDL2.dll">
+      <Filter>Исходные файлы\dlls</Filter>
+    </None>
+    <None Include="..\x64\Release\dlls\SDL2_image.dll">
+      <Filter>Исходные файлы\dlls</Filter>
+    </None>
+    <None Include="..\x64\Release\dlls\SDL2_ttf.dll">
+      <Filter>Исходные файлы\dlls</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -4,7 +4,9 @@
 
 bool isPlayerRunning;
 bool isPlayerAlive;
+bool itemInHeands;
 float playerAnimTimer;
+int health;
 
 SDL_Surface* mapSurf;
 SDL_Surface* itemSurf;
@@ -19,6 +21,10 @@ SDL_Rect itemHealthSrcRect;
 
 SDL_Rect itemSpikeRect;
 SDL_Rect itemSpikeSrcRect;
+
+SDL_Rect HealthRect;
+SDL_Rect HealthSrcRect;
+
 SDL_Rect mapRect;
 SDL_Rect playerDstRect;
 SDL_Rect playerSrcRect;
@@ -33,7 +39,7 @@ void OnGameStart(SDL_Renderer* renderer) {
 	playerAnimTimer = 0.f;
 	isPlayerRunning = false;
 	isPlayerAlive = true;
-
+	itemInHeands = false;
 	mapSurf = IMG_Load("data/2.png");
 	mapTexture = SDL_CreateTextureFromSurface(renderer, mapSurf);
 	mapRect = { 400 - 1024, 300 - 1024, 2048, 2048 };
@@ -42,6 +48,10 @@ void OnGameStart(SDL_Renderer* renderer) {
 	itemTexture = SDL_CreateTextureFromSurface(renderer, itemSurf);
 	itemHealthRect = { 200, 200, 25, 25 };
 	itemHealthSrcRect = { 0, 0, 8, 8 };
+
+	HealthRect = { 0, 0, 50, 50 };
+	HealthSrcRect = { 16, 0, 8, 8 };
+	health = 3;
 
 	itemSpikeRect = { 400, 400, 25, 25 };
 	itemSpikeSrcRect = { 8, 0, 8, 8 };
@@ -52,23 +62,39 @@ void OnGameStart(SDL_Renderer* renderer) {
 void OnGameRender(SDL_Renderer* renderer, SDL_Event& event) {
 	SDL_RenderCopy(renderer, mapTexture, NULL, &mapRect);
 	SDL_RenderCopyEx(renderer, playerTexture, &playerSrcRect, &playerDstRect, NULL, NULL, flip);
-	SDL_RenderCopy(renderer, itemTexture, &itemHealthSrcRect, &itemHealthRect);
 	SDL_RenderCopy(renderer, itemTexture, &itemSpikeSrcRect, &itemSpikeRect);
 
-	if (inTrigger(playerDstRect, itemHealthRect)) {
-		itemHealthRect.x = playerDstRect.x + playerDstRect.w / 2;
-		itemHealthRect.y = playerDstRect.y + playerDstRect.h / 2;
-		if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_G]) {
-			switch (flip) {
-			case SDL_FLIP_HORIZONTAL:
-			itemHealthRect.x -= 100;
-			break;
-			case SDL_FLIP_NONE:
-			itemHealthRect.x += 100;
-			break;
-			}
-		}
+	// -------------
+	// Логика использования хилки
+	// -------------
+	HealthRect.x = 0;
+	for (int i = 0; i < health; i++)
+	{
+		SDL_RenderCopy(renderer, itemTexture, &HealthSrcRect, &HealthRect);
+		HealthRect.x += HealthRect.w + 1;
 	}
+	if (itemInHeands == false)
+		SDL_RenderCopy(renderer, itemTexture, &itemHealthSrcRect, &itemHealthRect);
+	if (inTrigger(playerDstRect, itemHealthRect) && itemInHeands == false) {
+			
+		itemInHeands = true;
+		health++;
+		//itemHealthRect.x = playerDstRect.x + playerDstRect.w / 2;
+		//itemHealthRect.y = playerDstRect.y + playerDstRect.h / 2;
+		//if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_G]) {
+		//	switch (flip) {
+		//	case SDL_FLIP_HORIZONTAL:
+		//	itemHealthRect.x -= 100;
+		//	break;
+		//	case SDL_FLIP_NONE:
+		//	itemHealthRect.x += 100;
+		//	break;
+		//	}
+		//}
+	}
+	// -------------
+	// Логика смерти и анимации игрока
+	// -------------
 	if (isPlayerRunning) {
 		playerSrcRect.y = 24;
 		playerAnimTimer += deltaTime();
@@ -77,7 +103,8 @@ void OnGameRender(SDL_Renderer* renderer, SDL_Event& event) {
 		if (playerSrcRect.x >= 168) { playerSrcRect.x = 0; }
 	}
 	
-	if (inTrigger(playerDstRect, itemSpikeRect) && isPlayerAlive != false) { isPlayerAlive = false; }
+	if (inTrigger(playerDstRect, itemSpikeRect) && isPlayerAlive != false) { health--; }
+	if (health <= 0) { isPlayerAlive = false; }
 	switch (isPlayerAlive) {
 		case false:           // Игрок умер
 			playerSrcRect.y = 96;

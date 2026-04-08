@@ -70,6 +70,7 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -117,7 +118,6 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <AdditionalIncludeDirectories>C:\Users\User\source\repos\MySDLgame\SDL2_ttf-2.24.0\include;C:\Users\User\source\repos\MySDLgame\SDL2_image-2.8.8\include;C:\Users\User\source\repos\MySDLgame\SDL2-devel-2.32.10-VC\SDL2-2.32.10\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -133,6 +133,9 @@
       <AdditionalDependencies>SDL2_image.lib;SDL2main.lib;SDL2.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <Version>1488</Version>
       <AssemblyLinkResource>MySDLgame.rc;%(AssemblyLinkResource)</AssemblyLinkResource>
+      <DelayLoadDLLs>/DELAYLOAD;%(DelayLoadDLLs)</DelayLoadDLLs>
+      <PreventDllBinding>
+      </PreventDllBinding>
     </Link>
     <CustomBuildStep>
       <Message>67</Message>
@@ -154,6 +157,11 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="MySDLgame.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\x64\Release\dlls\SDL2.dll" />
+    <None Include="..\x64\Release\dlls\SDL2_image.dll" />
+    <None Include="..\x64\Release\dlls\SDL2_ttf.dll" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

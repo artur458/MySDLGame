@@ -99,11 +99,11 @@ void OnGameRender(SDL_Renderer* renderer, SDL_Event& event) {
 		playerSrcRect.y = 24;
 		playerAnimTimer += deltaTime();
 		if (playerAnimTimer >= 0.10f) { playerSrcRect.x += 24; playerAnimTimer = 0.f; }
-		
 		if (playerSrcRect.x >= 168) { playerSrcRect.x = 0; }
 	}
+	else { playerSrcRect.x = 0; playerSrcRect.y = 120; }
 	
-	if (inTrigger(playerDstRect, itemSpikeRect) && isPlayerAlive != false) { health--; }
+	if (inTrigger(playerDstRect, itemSpikeRect) && isPlayerAlive != false) { health--; playerDstRect.x = 800 / 2 - 50; playerDstRect.y = 600 / 2 - 50; }
 	if (health <= 0) { isPlayerAlive = false; }
 	switch (isPlayerAlive) {
 		case false:           // Игрок умер
